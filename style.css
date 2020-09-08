@@ -6,13 +6,36 @@ h1{
     text-transform: uppercase;
     width: 100%;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 50px;
     color: #7ab08e;
     text-align: center;
-    margin: 60px 0px;
+    margin: 50px 0px;
+}
+main{
+    width: 100%;
 }
 .cartas{
-    padding: 0px 100px;
-    width: 100%;
-    height: calc(100% - 160px);
+    width: calc(100% - 240px);
+    height: 360px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
 }
+.cartas li{
+    width: 120px;
+    height: 150px;
+    margin: 15px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-color: #A7E9AF;
+    border: 1px solid #7ab08e;
+    background-image: url(imagens/front.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+/* para fazer a rotação das cartas usar -> transform: rotateY(180deg);*/
