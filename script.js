@@ -15,7 +15,15 @@ se for a primeira carta do par ela tem que ficar parada até selecionar a segund
     se errar: volta as duas cartas para a posição inicial após 1 segundo
 ao final do jogo informar o numero de jogadas -> numero de cliques / 2
  */
-
+var imgParrots = [
+    "imagens/bobrossparrot.gif",
+    "imagens/explodyparrot.gif",
+    "imagens/fiestaparrot.gif",
+    "imagens/metalparrot.gif",
+    "imagens/revertitparrot.gif",
+    "imagens/tripletsparrot.gif",
+    "imagens/unicornparrot.gif"
+]
 
 //---------------------------------------------------------------------------------função para o user escolher o nº cartas
 function iniciar(){
@@ -25,6 +33,6 @@ function iniciar(){
     while((qtdCartas % 2 !== 0) || (qtdCartas < 4) || (qtdCartas > 14)){
         qtdCartas = parseInt(prompt("Você precisa escolher um nº par entre 4 e 14. Com quantas cartas você quer jogar?"));
     }
-    alert("iniciou o jogo");
+    //renderizaCartas(qtdCartas);
 }
 iniciar();
