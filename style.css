@@ -35,7 +35,7 @@ main{
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
-    transition: all .5s;
+    transition: transform .5s;
     transform-style: preserve-3d;
 }
 /* para fazer a rotação das cartas usar -> transform: rotateY(180deg);*/
