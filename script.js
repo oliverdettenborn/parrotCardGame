@@ -1,13 +1,5 @@
 /*
 
-inserir as cartas no ul.cartas
-    criar uma array com as url dos parrot
-    todos as cartas inseridas vao ter que ser inseridos seu par 
-
-inserir aleatoriamente no verso os gifs dos parrot
-    criar um .random para inserir um indice aleatorio da array
-        -> sortear os nº e jogar num novo array com 2 vezes cada parrot e fazer um novo .random nesse array do sorteio para inserir aleatroiamente as posições dos parrot
-
 ao clicar a carta tem que girar
 
 se for a primeira carta do par ela tem que ficar parada até selecionar a segunda
@@ -16,7 +8,7 @@ se for a primeira carta do par ela tem que ficar parada até selecionar a segund
 ao final do jogo informar o numero de jogadas -> numero de cliques / 2
  */
 
- //-------------------------------------------------------------------------------array com os parrots
+//-------------------------------------------------------------------------------array com os parrots
 var imgParrots = [
     "imagens/bobrossparrot.gif",
     "imagens/explodyparrot.gif",
@@ -28,8 +20,18 @@ var imgParrots = [
 ]
 
 
- //---------------------------------------------------------------------array com os parrots sorteado pelo total de cartas
+//---------------------------------------------------------------------array com os parrots sorteado pelo total de cartas
 var selecionados = [];
+
+//---------------------------------------------------------------------------------sorteando os papagaios
+function sortearParrots(qtdCartas){
+    for(var i = 0; i < qtdCartas/2; i++){
+        var indiceSorteio = Math.floor(imgParrots.length * Math.random());
+        selecionados.push(imgParrots[indiceSorteio]);
+        selecionados.push(imgParrots[indiceSorteio]);
+        imgParrots.splice(indiceSorteio,1);
+    }
+}
 
 //---------------------------------------------------------------------------------função para o user escolher o nº cartas
 function iniciar(){
@@ -45,19 +47,33 @@ iniciar();
 
 //---------------------------------------------------------------------------------inserir as cartas do jogo
 function renderizaCartas(qtdCartas){
-    var contador = 0;
-    
     sortearParrots(qtdCartas);
-}
 
+    while(selecionados.length !== 0){
+        //---------------------------------------------------------criar uma carta
+        var carta = document.createElement("li");
 
-//---------------------------------------------------------------------------------sorteando os papagaios
-function sortearParrots(qtdCartas){
-    for(var i = 0; i < qtdCartas/2; i++){
+        //---------------------------------------------------------insererir função onclick na carta
+        carta.setAttribute('onclick','virarCarta(this)');
+
+        //---------------------------------------------------------inserir uma imagem aleatoriamente nela
+        var imgCarta = document.createElement('img');
+
         var indiceSorteio = Math.floor(imgParrots.length * Math.random());
-        selecionados.push(imgParrots[indiceSorteio]);
-        selecionados.push(imgParrots[indiceSorteio]);
-        imgParrots.splice(indiceSorteio,1);
+        var urlAleatorio = selecionados[indiceSorteio];
+        imgCarta.setAttribute('src', urlAleatorio);
+        
+        //-------------------------------------------------remover essa imagem da lista de selecionados para não repetir
+        selecionados.splice(indiceSorteio,1);
+
+        //-------------------------------------------------inserir display none na imagem do parrot
+        imgCarta.style.display = "none";
+
+        //-------------------------------------------------vincular essa imagem ao li da carta criada
+        carta.appendChild(imgCarta);
+
+        //-------------------------------------------------selecionar ul onde estão as cartas e vincular a carta
+        var ul = document.querySelector(".cartas");
+        ul.appendChild(carta);
     }
-    console.log(selecionados);
 }
