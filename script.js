@@ -41,6 +41,10 @@ function iniciar(){
     while((qtdCartas % 2 !== 0) || (qtdCartas < 4) || (qtdCartas > 14)){
         qtdCartas = parseInt(prompt("Você precisa escolher um nº par entre 4 e 14. Com quantas cartas você quer jogar?"));
     }
+
+    var widthJogo = ((qtdCartas / 2) * 150);
+    var ul = document.querySelector(".cartas");
+    ul.style.width = widthJogo + "px";
     renderizaCartas(qtdCartas);
 }
 iniciar();
@@ -59,7 +63,8 @@ function renderizaCartas(qtdCartas){
         //---------------------------------------------------------inserir uma imagem aleatoriamente nela
         var imgCarta = document.createElement('img');
 
-        var indiceSorteio = Math.floor(imgParrots.length * Math.random());
+        var indiceSorteio = Math.floor(selecionados.length * Math.random());
+        
         var urlAleatorio = selecionados[indiceSorteio];
         imgCarta.setAttribute('src', urlAleatorio);
         
