@@ -37,5 +37,9 @@ main{
     background-position: center;
     transition: transform .5s;
     transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
 }
-/* para fazer a rotação das cartas usar -> transform: rotateY(180deg);*/
+.cartas img{
+    width: 100%;
+}
