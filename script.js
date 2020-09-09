@@ -77,3 +77,8 @@ function renderizaCartas(qtdCartas){
         ul.appendChild(carta);
     }
 }
+
+function virarCarta(element){
+    element.style.transform = "rotateY(180deg)";
+    console.log(element);
+}
