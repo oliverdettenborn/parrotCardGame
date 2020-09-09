@@ -83,7 +83,10 @@ function renderizaCartas(qtdCartas){
     }
 }
 
+//---------------------------------------------------------------------------------função que vira a carta ao clicar
 function virarCarta(element){
     element.style.transform = "rotateY(180deg)";
-    console.log(element);
+    element.style.backgroundImage = "none";
+    var img = element.querySelector('img');
+    img.style.display = "initial";
 }
