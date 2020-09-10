@@ -94,9 +94,44 @@ var cartasViradas = [];
 function virarCarta(element){
     mostraVerso(element);
     contJogada++;
-    console.log(contJogada);
+    cartasViradas.push(element);
+
+    if(cartasViradas.length === 2)
+        segundoClique();
+    
+}
+function segundoClique(){
+    var primeiraCarta = pegaSrc(0);
+    var segundaCarta = pegaSrc(1);
+    
+    //-------------------------------------------------verificar se as cartas são iguais
+    var saoIguais = verificaCartasIguais(primeiraCarta,segundaCarta);
+
+    if(saoIguais === true){
+        cartasViradas = [];
+    }else if (saoIguais === false){
+        setTimeout(function () {
+            mostraFrente(cartasViradas[0]);
+        }, 1000);
+        setTimeout(function () {
+            mostraFrente(cartasViradas[1]);
+        }, 1000);
+    }
+}
+//----------------------------------------------------------------------------função para pegar o scr da imagem do elemento clicado
+function pegaSrc(i){
+    var carta = cartasViradas[i].querySelector("img");
+    var parrot = carta.getAttribute('src');
+    return parrot;
 }
 
+//---------------------------------------------------------------------------- verificando se as cartas tem o mesmo parrot
+function verificaCartasIguais(primeiraCarta,segundaCarta){
+    if(primeiraCarta === segundaCarta)
+        return true;
+    else
+        return false;
+}
 
 //---------------------------------------------------------------------------------mostra verso da carta
 function mostraVerso(element){
