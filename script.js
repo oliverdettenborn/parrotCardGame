@@ -83,14 +83,6 @@ function renderizaCartas(qtdCartas){
     }
 }
 
-//---------------------------------------------------------------------------------função que vira a carta ao clicar
-function virarCarta(element){
-    element.style.transform = "rotateY(180deg)";
-    mostraVerso(element);
-    
-}
-
-
 
 //---------------------------------------------------------------------------------variaveis globais para controle do jogo
 var contJogada = 0;
@@ -98,10 +90,17 @@ var contJogada = 0;
 var cartasViradas = [];
 
 
+//---------------------------------------------------------------------------------função que vira a carta ao clicar
+function virarCarta(element){
+    mostraVerso(element);
+    contJogada++;
+    console.log(contJogada);
+}
 
 
 //---------------------------------------------------------------------------------mostra verso da carta
 function mostraVerso(element){
+    element.style.transform = "rotateY(180deg)";
     element.style.backgroundImage = "none";
     var img = element.querySelector('img');
     img.style.display = "initial";
