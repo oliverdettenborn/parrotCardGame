@@ -11,7 +11,8 @@ var countAcerto = 0;
 var cartasViradas = [];
 var acertosParaFinalizar = 0;
 var tempoSegundos = 0;
-var statusJogo = "";
+var statusJogo = 0;
+var interval;
 var ul = document.querySelector(".cartas");
 
 
@@ -31,12 +32,9 @@ function iniciarJogo(){
     statusJogo = "jogando";
 
     //--------------------------------------------------------------condicional para contar o tempo durante o jogo
-    var x = 0;
     if(statusJogo === "jogando"){
-        x = 1000;
-        setInterval(function (){
-            cronometro();
-        }, x);
+        clearInterval(interval);
+        interval = setInterval(cronometro, 1000);
     }
 }
 iniciarJogo();
@@ -61,7 +59,6 @@ function reiniciarJogo(){
     resetarJogo();
     iniciarJogo();
 }
-
 
 
 
@@ -127,6 +124,7 @@ function resetarJogo(){
     selecionados = [];
     tempoSegundos = 0;
     statusJogo = "";
+    interval = 0;
 }
 
 
