@@ -86,6 +86,7 @@ function renderizaCartas(qtdCartas){
 
 //---------------------------------------------------------------------------------variaveis globais para controle do jogo
 var countJogada = 0;
+var countAcerto = 0;
 var cartasViradas = [];
 
 
@@ -108,6 +109,7 @@ function segundoClique(){
 
     if(saoIguais === true){
         cartasViradas = [];
+        countAcerto +=2;
     }else if (saoIguais === false){
         setTimeout(function () {
             mostraFrente(cartasViradas[0]);
