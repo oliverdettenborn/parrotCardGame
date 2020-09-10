@@ -4,6 +4,8 @@ var countJogada = 0;
 var countAcerto = 0;
 var cartasViradas = [];
 var acertosParaFinalizar = 0;
+var ul = document.querySelector(".cartas");
+
 
 //-------------------------------------------------------------------------------array com os parrots
 var imgParrots = [
@@ -31,7 +33,7 @@ function sortearParrots(qtdCartas){
 }
 
 //---------------------------------------------------------------------------------função para o user escolher o nº cartas
-function iniciar(){
+function iniciarJogo(){
     var qtdCartas = parseInt(prompt("Quantas cartas você quer jogar? \n Escolha um nº entre 4 e 14"));
 
     // verificação se o nº é par, maior que quatro e menor que 14
@@ -40,11 +42,10 @@ function iniciar(){
     }
 
     var widthJogo = ((qtdCartas / 2) * 150);
-    var ul = document.querySelector(".cartas");
     ul.style.width = widthJogo + "px";
     renderizaCartas(qtdCartas);
 }
-iniciar();
+iniciarJogo();
 
 //---------------------------------------------------------------------------------inserir as cartas do jogo
 function renderizaCartas(qtdCartas){
@@ -75,7 +76,6 @@ function renderizaCartas(qtdCartas){
         carta.appendChild(imgCarta);
 
         //-------------------------------------------------selecionar ul onde estão as cartas e vincular a carta
-        var ul = document.querySelector(".cartas");
         ul.appendChild(carta);
     };
     acertosParaFinalizar = qtdCartas;
@@ -137,7 +137,41 @@ function verificaCartasIguais(primeiraCarta,segundaCarta){
 function finalizaJogo(){
     setTimeout(function(){
         alert("Você ganhou em " + countJogada + " jogadas!");
-    }, 1000);
+        reiniciarJogo()
+    }, 500);
+}
+
+//---------------------------------------------------------------------------- função para reiniciar o jogo
+function reiniciarJogo(){
+    var querReiniciar = prompt("Você quer reiniciar o jogo?");
+
+    while(querReiniciar !== "sim"){
+        querReiniciar = prompt("Para reiniciar o jogo, digite a palavra sim");
+    };
+    
+    resetarJogo();
+    iniciarJogo();
+}
+
+//------------------------------------------------------------------------função que reseta a array com os src dos parrot
+function resetarJogo(){
+    ul.innerHTML = "";
+    
+    imgParrots = [
+        "imagens/bobrossparrot.gif",
+        "imagens/explodyparrot.gif",
+        "imagens/fiestaparrot.gif",
+        "imagens/metalparrot.gif",
+        "imagens/revertitparrot.gif",
+        "imagens/tripletsparrot.gif",
+        "imagens/unicornparrot.gif"
+    ];
+
+    countJogada = 0;
+    countAcerto = 0;
+    cartasViradas = [];
+    acertosParaFinalizar = 0;
+    selecionados = [];
 }
 
 //---------------------------------------------------------------------------------mostra verso da carta
