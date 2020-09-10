@@ -10,6 +10,8 @@ var countJogada = 0;
 var countAcerto = 0;
 var cartasViradas = [];
 var acertosParaFinalizar = 0;
+var tempoSegundos = 0;
+var statusJogo = "";
 var ul = document.querySelector(".cartas");
 
 
@@ -24,14 +26,21 @@ function iniciarJogo(){
 
     var widthJogo = ((qtdCartas / 2) * 150);
     ul.style.width = widthJogo + "px";
+
     renderizaCartas(qtdCartas);
+    statusJogo = "jogando";
+
+    //--------------------------------------------------------------condicional para contar o tempo durante o jogo
+    if(statusJogo === "jogando"){
+        setInterval(cronometro, 1000);
+    }
 }
 iniciarJogo();
 
 //----------------------------------------------------------------------------------- verificando se o jogo acabou
 function finalizaJogo(){
     setTimeout(function(){
-        alert("Você ganhou em " + countJogada + " jogadas!");
+        alert("Você ganhou em " + tempoSegundos + " segundos!");
         reiniciarJogo()
     }, 500);
 }
@@ -65,6 +74,7 @@ function virarCarta(element){
 
     if(countAcerto === acertosParaFinalizar){
         finalizaJogo();
+        statusJogo = "ganhou";
     };
 }
 
@@ -110,6 +120,8 @@ function resetarJogo(){
     cartasViradas = [];
     acertosParaFinalizar = 0;
     selecionados = [];
+    tempoSegundos = 0;
+    statusJogo = "";
 }
 
 
@@ -147,4 +159,11 @@ function mostraFrente(element){
     element.style.backgroundImage = "url(imagens/front.png)";
     var img = element.querySelector('img');
     img.style.display = "none";
+}
+
+//---------------------------------------------------------------------cronometro do jogo
+function cronometro(){
+    console.log("passei aqui");
+    tempoSegundos++;
+    renderizaTempo(tempoSegundos);
 }

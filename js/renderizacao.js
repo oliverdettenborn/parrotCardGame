@@ -66,3 +66,15 @@ function sortearParrots(qtdCartas){
         imgParrots.splice(indiceSorteio,1);
     }
 }
+
+//---------------------------------------------------------------------------------escrevendo o tempo de jogo em tela
+function renderizaTempo(tempoSegundos){
+    var aside = document.querySelector(".cronometro");
+
+    //-------------------------------------------------limpar o numero que está lá e inserir o novo numero
+    aside.innerText = "";
+    aside.innerText = tempoSegundos;
+
+    var body = document.querySelector('body');
+    body.appendChild(aside);
+}
