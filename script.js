@@ -1,12 +1,9 @@
-/*
 
-ao clicar a carta tem que girar
-
-se for a primeira carta do par ela tem que ficar parada até selecionar a segunda
-    se acertar: mantem as duas viradas
-    se errar: volta as duas cartas para a posição inicial após 1 segundo
-ao final do jogo informar o numero de jogadas -> numero de cliques / 2
- */
+//---------------------------------------------------------------------------------variaveis globais para controle do jogo
+var countJogada = 0;
+var countAcerto = 0;
+var cartasViradas = [];
+var acertosParaFinalizar = 0;
 
 //-------------------------------------------------------------------------------array com os parrots
 var imgParrots = [
@@ -80,14 +77,9 @@ function renderizaCartas(qtdCartas){
         //-------------------------------------------------selecionar ul onde estão as cartas e vincular a carta
         var ul = document.querySelector(".cartas");
         ul.appendChild(carta);
-    }
+    };
+    acertosParaFinalizar = qtdCartas;
 }
-
-
-//---------------------------------------------------------------------------------variaveis globais para controle do jogo
-var countJogada = 0;
-var countAcerto = 0;
-var cartasViradas = [];
 
 
 //---------------------------------------------------------------------------------função que vira a carta ao clicar
@@ -96,10 +88,16 @@ function virarCarta(element){
     countJogada++;
     cartasViradas.push(element);
 
-    if(cartasViradas.length === 2)
+    if(cartasViradas.length === 2){
         segundoClique();
-    
+    };
+
+    if(countAcerto === acertosParaFinalizar){
+        finalizaJogo();
+    };
 }
+
+//-----------------------------------------------------------------------------função que confere a segunda carta clicada
 function segundoClique(){
     var primeiraCarta = pegaSrc(0);
     var segundaCarta = pegaSrc(1);
@@ -118,7 +116,9 @@ function segundoClique(){
         }, 1000);
     }
 }
-//----------------------------------------------------------------------------função para pegar o scr da imagem do elemento clicado
+
+
+//-----------------------------------------------------------------função para pegar o scr da imagem do elemento clicado
 function pegaSrc(i){
     var carta = cartasViradas[i].querySelector("img");
     var parrot = carta.getAttribute('src');
@@ -131,6 +131,13 @@ function verificaCartasIguais(primeiraCarta,segundaCarta){
         return true;
     else
         return false;
+}
+
+//---------------------------------------------------------------------------- verificando se o jogo acabou
+function finalizaJogo(){
+    setTimeout(function(){
+        alert("Você ganhou em " + countJogada + " jogadas!");
+    }, 1000);
 }
 
 //---------------------------------------------------------------------------------mostra verso da carta
