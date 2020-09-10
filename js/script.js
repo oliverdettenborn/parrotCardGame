@@ -31,17 +31,22 @@ function iniciarJogo(){
     statusJogo = "jogando";
 
     //--------------------------------------------------------------condicional para contar o tempo durante o jogo
+    var x = 0;
     if(statusJogo === "jogando"){
-        setInterval(cronometro, 1000);
+        x = 1000;
+        setInterval(function (){
+            cronometro();
+        }, x);
     }
 }
 iniciarJogo();
 
 //----------------------------------------------------------------------------------- verificando se o jogo acabou
 function finalizaJogo(){
+    statusJogo = "ganhou";
     setTimeout(function(){
         alert("Você ganhou em " + tempoSegundos + " segundos!");
-        reiniciarJogo()
+        reiniciarJogo();
     }, 500);
 }
 
@@ -163,7 +168,6 @@ function mostraFrente(element){
 
 //---------------------------------------------------------------------cronometro do jogo
 function cronometro(){
-    console.log("passei aqui");
     tempoSegundos++;
     renderizaTempo(tempoSegundos);
 }
