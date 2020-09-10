@@ -85,15 +85,14 @@ function renderizaCartas(qtdCartas){
 
 
 //---------------------------------------------------------------------------------variaveis globais para controle do jogo
-var contJogada = 0;
-
+var countJogada = 0;
 var cartasViradas = [];
 
 
 //---------------------------------------------------------------------------------função que vira a carta ao clicar
 function virarCarta(element){
     mostraVerso(element);
-    contJogada++;
+    countJogada++;
     cartasViradas.push(element);
 
     if(cartasViradas.length === 2)
@@ -112,9 +111,8 @@ function segundoClique(){
     }else if (saoIguais === false){
         setTimeout(function () {
             mostraFrente(cartasViradas[0]);
-        }, 1000);
-        setTimeout(function () {
             mostraFrente(cartasViradas[1]);
+            cartasViradas = [];
         }, 1000);
     }
 }
