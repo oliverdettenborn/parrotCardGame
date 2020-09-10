@@ -124,7 +124,6 @@ function resetarJogo(){
     selecionados = [];
     tempoSegundos = 0;
     statusJogo = "";
-    interval = 0;
 }
 
 
