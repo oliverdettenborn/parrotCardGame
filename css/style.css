@@ -31,7 +31,7 @@ main{
     border-radius: 10px;
     background-color: #A7E9AF;
     border: 1px solid #7ab08e;
-    background-image: url(imagens/front.png);
+    background-image: url(../imagens/front.png);
     background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
