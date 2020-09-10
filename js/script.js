@@ -66,17 +66,21 @@ function reiniciarJogo(){
 
 //---------------------------------------------------------------------------------função que vira a carta ao clicar
 function virarCarta(element){
-    mostraVerso(element);
-    countJogada++;
     cartasViradas.push(element);
 
-    if(cartasViradas.length === 2){
-        segundoClique();
-    };
+    //--------------------------condicional para evitar que mais que 2 cartas sejam viradas
+    if(cartasViradas.length < 3){
+        mostraVerso(element);
+        countJogada++;
 
-    if(countAcerto === acertosParaFinalizar){
-        finalizaJogo();
-        statusJogo = "ganhou";
+        if(cartasViradas.length === 2){
+            segundoClique();
+        };
+
+        if(countAcerto === acertosParaFinalizar){
+            finalizaJogo();
+            statusJogo = "ganhou";
+        };
     };
 }
 
