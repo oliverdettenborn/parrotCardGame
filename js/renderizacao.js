@@ -32,7 +32,7 @@ function renderizaCartas(qtdCartas){
         var carta = document.createElement("li");
 
         //---------------------------------------------------------insererir função onclick na carta
-        carta.setAttribute('onclick','virarCarta(this)');
+        carta.setAttribute('onclick','clickCarta(this)');
 
         //---------------------------------------------------------inserir uma imagem aleatoriamente nela
         var imgCarta = document.createElement('img');
@@ -52,9 +52,9 @@ function renderizaCartas(qtdCartas){
         carta.appendChild(imgCarta);
 
         //-------------------------------------------------selecionar ul onde estão as cartas e vincular a carta
+        var ul = document.querySelector(".cartas");
         ul.appendChild(carta);
     };
-    acertosParaFinalizar = qtdCartas;
 }
 
 //---------------------------------------------------------------------------------sorteando os papagaios

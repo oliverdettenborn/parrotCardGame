@@ -13,7 +13,7 @@ var acertosParaFinalizar = 0;
 var tempoSegundos = 0;
 var statusJogo = 0;
 var interval;
-var ul = document.querySelector(".cartas");
+
 
 
 //-------------------------------------------------------------------------função para o user escolher o nº cartas
@@ -26,10 +26,12 @@ function iniciarJogo(){
     }
 
     var widthJogo = ((qtdCartas / 2) * 150);
+    var ul = document.querySelector(".cartas");
     ul.style.width = widthJogo + "px";
 
     renderizaCartas(qtdCartas);
     statusJogo = "jogando";
+    acertosParaFinalizar = qtdCartas;
 
     //--------------------------------------------------------------condicional para contar o tempo durante o jogo
     if(statusJogo === "jogando"){
@@ -56,7 +58,7 @@ function reiniciarJogo(){
         querReiniciar = prompt("Para reiniciar o jogo, digite a palavra sim");
     };
     
-    resetarJogo();
+    resetarVariaveis();
     iniciarJogo();
 }
 
@@ -65,12 +67,12 @@ function reiniciarJogo(){
 
 
 //---------------------------------------------------------------------------------função que vira a carta ao clicar
-function virarCarta(element){
+function clickCarta(element){
     cartasViradas.push(element);
 
     //--------------------------condicional para evitar que mais que 2 cartas sejam viradas
     if(cartasViradas.length < 3){
-        mostraVerso(element);
+        virar(element,"rotateY(180deg)","none","initial");
         countJogada++;
 
         if(cartasViradas.length === 2){
@@ -91,15 +93,15 @@ function segundoClique(){
     var segundaCarta = pegaSrc(1);
     
     //-------------------------------------------------verificar se as cartas são iguais
-    var saoIguais = verificaCartasIguais(primeiraCarta,segundaCarta);
+    var saoIguais = verificaIgual(primeiraCarta,segundaCarta);
 
     if(saoIguais === true){
         cartasViradas = [];
         countAcerto +=2;
     }else if (saoIguais === false){
         setTimeout(function () {
-            mostraFrente(cartasViradas[0]);
-            mostraFrente(cartasViradas[1]);
+            virar(cartasViradas[0],"rotateY(0deg)","url(imagens/front.png)","none");
+            virar(cartasViradas[1],"rotateY(0deg)","url(imagens/front.png)","none");
             cartasViradas = [];
         }, 1000);
     }
@@ -108,7 +110,8 @@ function segundoClique(){
 
 
 //---------------------------------------------------------------------função que reseta a array com os src dos parrot
-function resetarJogo(){
+function resetarVariaveis(){
+    var ul = document.querySelector(".cartas");
     ul.innerHTML = "";
     
     imgParrots = [
@@ -141,31 +144,22 @@ function pegaSrc(i){
 }
 
 //------------------------------------------------------------------------- verificando se as cartas tem o mesmo parrot
-function verificaCartasIguais(primeiraCarta,segundaCarta){
-    if(primeiraCarta === segundaCarta)
+function verificaIgual(valor1,valor2){
+    if(valor1 === valor2)
         return true;
     else
         return false;
 }
 
 
-
-
-
-//----------------------------------------------------------------------------------------------mostra verso da carta
-function mostraVerso(element){
-    element.style.transform = "rotateY(180deg)";
-    element.style.backgroundImage = "none";
+//---------------------------------------------------------------------------------------faz a troca das imagens ao virar
+function virar(element,rotacao,backgroundImg,display){
+    element.style.transform = rotacao;
+    element.style.backgroundImage = backgroundImg;
     var img = element.querySelector('img');
-    img.style.display = "initial";
+    img.style.display = display;
 }
-//---------------------------------------------------------------------------------------------mostra frente da carta
-function mostraFrente(element){
-    element.style.transform = "rotateY(0deg)";
-    element.style.backgroundImage = "url(imagens/front.png)";
-    var img = element.querySelector('img');
-    img.style.display = "none";
-}
+
 
 //---------------------------------------------------------------------cronometro do jogo
 function cronometro(){
