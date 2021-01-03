@@ -41,6 +41,12 @@ Languages:<br>
 The application layout is available on Github Pages:<br>
 <a href='https://thaliadettenborn.github.io/parrotCardGame/' target="_blank" ><img src='https://img.shields.io/badge/github-pages%20-%23F05033.svg?&style=for-the-badge&logo=github&logoColor=white'></a>
 
+### Contributors
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/responde-ai"><img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/40724166?s=200&v=4" width="100px;" alt=""/><br /><sub><b>Responde Aí</b></sub></a><br />
+  </tr>
+</table>
 
 ### Author
 ---
