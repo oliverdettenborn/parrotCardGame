@@ -1,42 +1,54 @@
-# Descrição
+<p align="center">
+  <img src="/imagens/bobrossparrot.gif" width="175" alt="" />
+</p>
 
-Seu segundo projeto com JavaScript será a implementação do jogo Parrot Card Game, um jogo da memória temático com aleatoridade, efeitos e transição, responsividade e papagaios dançantes!
+# Parrot Card Game
 
-Além do seu primeiro jogo, este também será o primeiro projeto usando Git :)
+## About
+<p>
+    Parrot Card Game is a themed memory game with randomness, effects and transition, responsiveness and dancing parrots!
+</p>
 
-Todas as instruções estão em: [https://github.com/bootcamp-ra/projeto-04-parrot-card-game](https://github.com/bootcamp-ra/projeto-04-parrot-card-game)
+<p align="center">
+    <a href="#features">Features</a> •
+    <a href="#tech">Tech Stack</a> •
+    <a href="#deploy">Deploy</a> •
+    <a href="#author">Author</a>
+</p>
 
-# Requisitos
+### Features
+- [x] Made only with pure Javascript, without using libraries like jquery, lodash, etc.<br>
+- [x] Layout mobile and desktop<br>
+- [x] When entering the game, the user is asked how many cards he wants to play<br>
+- [x] An even number between 4 and 14 cards must be chosen to start the game<br>
+- [x] Clicking on a card turns it over with a 3D animation effect<br>
+- [x] If it is the first card turned over, the game awaits the user's second choice. If it is the second card, it is checked whether the cards are a pair.<br>
+- [x] If the user hits the pair, the cards remain face up. In case of an error, the cards return face down after 1 second.<br>
+- [x] When the user finishes turning all cards correctly, an alert is displayed with the message "You won in X seconds!".<br>
+- [x] At the top right of the screen, there is a timer counting how many seconds have passed since the game started.<br>
+- [x] At the end of the game, the user is asked with a prompt if he would like to restart the game. If you answer yes, the game is restarted asking for the number of cards.<br>
 
-- Geral
-    - [ ]  Não utilize nenhuma biblioteca para implementar este projeto (jquery, lodash, etc), somente JavaScript puro
-    - [ ]  Seu projeto deverá ser desenvolvido utilizando Git e GitHub
-    - [ ]  Para isso, comece fazendo um **fork** **privado** do projeto de referência: [https://github.com/bootcamp-ra/projeto-04-parrot-card-game](https://github.com/bootcamp-ra/projeto-04-parrot-card-game)
-    - [ ]  **A cada requisito implementado** faça um commit com uma mensagem descritiva do que você evoluiu
-    - [ ]  Caso queira dividir um requisito em vários commits, não há problema. Mas evite colocar mais de um requisito no mesmo commit.
-- Layout
-    - [ ]  Aplicar layout para desktop, seguindo imagens fornecidas
-    - [ ]  Aplicar layout para mobile, seguindo imagens fornecidas
-    - [ ]  Fonte usada deve ser a Roboto
-    - [ ]  Cores
-        - Verde título: #7ab08e
-        - Amarelo Background: #effabf
-        - Verde cartas: #A7E9AF
-- Distribuição de cartas
-    - [ ]  Ao entrar no jogo, o usuário deverá ser perguntado com quantas cartas quer jogar (utilize `prompt`)
-    - [ ]  O usuário só poderá inserir números pares no `prompt`, de 4 a 12. Qualquer número que fuja a essa regra não deve ser aceito. No caso de números inválidos, o `prompt` deverá ficar sendo repetido, até que o usuário coloque um número válido.
-    - [ ]  Após inserir um número de cartas válido, o jogo deverá inserir as cartas viradas pra baixo na página de forma que a distribuição seja aleatória
-- Clique na carta
-    - [ ]  Ao clicar em uma carta, a mesma deve ser virada
-    - [ ]  Caso seja a primeira carta do par, ela deve permanecer virada até o usuário escolher a segunda carta
-    - [ ]  Caso seja a segunda carta, existem 2 situações:
-        - [ ]  Caso seja igual à primeira carta, o usuário acertou e ambas agora devem ficar viradas pra cima até o final do jogo
-        - [ ]  Caso seja uma carta diferente da primeira carta virada, o usuário errou. Nesse caso, o jogo deve **aguardar 1 segundo** e então virar as duas cartas para baixo novamente
-    - [ ]  **Dica**: se quiser fazer o efeito 3D da carta virando, você pode ver o CSS necesśario em: [https://repl.it/@BootcampRespond/FlippedCards#index.html](https://repl.it/@BootcampRespond/FlippedCards#index.html) . Só se atente que nesse exemplo a carta vira ao passar o mouse. No caso do jogo, seria ao clicar.
-- Fim do Jogo
-    - [ ]  Quando o usuário terminar de virar todas as cartas corretamente, deverá ser exibido um alert com a mensagem **"Você ganhou em X jogadas!"** sendo X a quantidade de vezes que o usuário virou uma carta no jogo.
+### Tech Stack
+Languages:<br>
+<p align="center">
+<img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+</p>
 
-# Bônus (opcional)
+### Deploy
 
-- [ ]  Coloque um relógio no topo superior direito da tela, contando quantos segundos já passaram desde o início do jogo. Ao final, informe na mensagem de vitória a quantidade de segundos.
-- [ ]  Ao final do jogo, pergunte com um prompt se o usuário gostaria de reiniciar a partida. Se ele responder sim, comece novamente o jogo perguntando a quantidade de cartas.
+The application layout is available on Github Pages:<br>
+<a href='https://thaliadettenborn.github.io/parrotCardGame/' target="_blank" ><img src='https://img.shields.io/badge/github-pages%20-%23F05033.svg?&style=for-the-badge&logo=github&logoColor=white'></a>
+
+
+### Author
+---
+<p align='center'>
+  <img src="https://avatars0.githubusercontent.com/u/70967247?s=460&u=0684339f0717ae41ce18689351f0215fdf270590&v=4" width="100px" style="border-radius: 50%"/>
+  <br>
+  Made by Thalia 👋🏽 Get in Touch!<br>
+  <a href="https://www.linkedin.com/in/thaliarobertadettenborn/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="mailto:thalia.born@gmail.com"><img src="https://img.shields.io/badge/gmail-D14836?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="https://github.com/thaliadettenborn"><img src="https://img.shields.io/badge/github-%23100000.svg?&style=for-the-badge&logo=github&logoColor=white" /></a>
+</p>
