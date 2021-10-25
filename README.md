@@ -57,4 +57,5 @@ The application layout is available on Github Pages:<br>
   <a href="https://www.linkedin.com/in/oliverdettenborn/"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a>
   <a href="mailto:oliver.dettenborn@gmail.com"><img src="https://img.shields.io/badge/gmail-D14836?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
   <a href="https://github.com/oliverdettenborn"><img src="https://img.shields.io/badge/github-%23100000.svg?&style=for-the-badge&logo=github&logoColor=white" /></a>
+  
 </p>
